@@ -1,0 +1,28 @@
+form {
+  text-align: center;
+  padding: 10px;
+}
+
+.rest-action{
+  border: none;
+  padding: 5px;
+  margin: 10px;
+  background-color: rgb(167, 167, 167);
+}
+
+.rest-action:hover{
+  background-color: rgb(216, 216, 216);
+}
+
+.output {
+  border: rgb(173, 173, 173) solid 1px;
+  background-color: rgb(228, 231, 231);
+  height: 500px;
+  width: 90%;
+  margin: auto;
+}
+
+.output-text {
+  padding-left: 5%;
+}
+
