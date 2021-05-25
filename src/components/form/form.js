@@ -6,7 +6,8 @@ class Form extends React.Component {
     super(props)
     this.state = {
       url: '',
-      method:''
+      method: '',
+      print: false,
     }
   }
 
@@ -23,6 +24,7 @@ class Form extends React.Component {
 
   handelSubmit = e => {
     e.preventDefault();
+    this.setState({ print: true})   
   }
 
   render() {
@@ -42,7 +44,7 @@ class Form extends React.Component {
           </section>
         </form>
         <section className="output">
-          <p>{this.state.method} {this.state.url}</p>
+          {this.state.print && <p>{this.state.method} {this.state.url}</p>}
         </section>
       </>
     );
