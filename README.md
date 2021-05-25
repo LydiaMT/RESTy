@@ -1,6 +1,25 @@
 # RESTy
 # Author: Lydia Minehan-Tubic
 
+## Links & Resources
+
+✨ [Deployed Site](https://flamboyant-kepler-b6da40.netlify.app/)
+
+✨ [Pull Request](https://github.com/LydiaMT/resty/pull/3)
+
+## About this Application 
+
+An API testing tool that can be run in any browser, allowing a user to easily interact with APIs in a familiar interface.
+
+## Dependencies
+
+- node-sass
+- react
+- react-dom
+- react-scripts
+
+## Scaffolding
+
 ```git 
 ├── .gitignore
 ├── .eslintrc.json
@@ -32,3 +51,7 @@
 │   │   └── design.scss
 └── package.json
 ```
+
+## Event Flow
+
+![Event Flow Diagram](img/RESTy1.jpg)
