@@ -24,15 +24,13 @@ class Form extends React.Component {
 
   handelSubmit = async e => {
     e.preventDefault();
-
-    let raw = await fetch('https://swapi.dev/api/people/');
+    let raw = await fetch(this.state.url);
     let data = await raw.json();
-    console.log("data", data)
+    let header = raw.headers
     let count = data.count
-    let people = data.results
-    this.props.handler(count, people)
+    let results = data.results
+    this.props.handler( header, count, results )
     this.props.toggleLoading()
-    // this.setState({ show: true })   
   }
 
   render() {

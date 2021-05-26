@@ -5,14 +5,13 @@ import './results.scss'
 class Results extends React.Component {
   constructor(props){
     super(props);
-    this.state={    
-    }
+    this.state={}
   }
 
   render(){
     return(
       <section className="output">
-        <ReactJson src={this.props.people} />
+        <ReactJson header={this.props.header} src={this.props.results} />
       </section>
     )
   }
