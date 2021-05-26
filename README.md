@@ -66,3 +66,7 @@ An API testing tool that can be run in any browser, allowing a user to easily in
 - Application fetches data from the URL given, with the method specified
 - Displays the response headers and results separately
 - Both headers and results should be “pretty printed” JSON
+
+## Event Flow
+
+![Event Flow Diagram](img/RESTy2.jpg)
