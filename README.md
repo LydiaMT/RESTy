@@ -51,7 +51,18 @@ An API testing tool that can be run in any browser, allowing a user to easily in
 │   │   └── design.scss
 └── package.json
 ```
+# Day 1
 
 ## Event Flow
 
 ![Event Flow Diagram](img/RESTy1.jpg)
+
+# Day 2
+
+## Application flow
+- User enters an API URL
+- Chooses a REST Method
+- Clicks the “Go” button
+- Application fetches data from the URL given, with the method specified
+- Displays the response headers and results separately
+- Both headers and results should be “pretty printed” JSON

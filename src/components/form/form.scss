@@ -21,12 +21,8 @@ form {
 .output {
   border: rgb(173, 173, 173) solid 1px;
   background-color: rgb(228, 231, 231);
-  height: 400px;
+  min-height: 400px;
   width: 90%;
   margin: auto;
-
-  p{
-    padding-left: 5%;
-  }
 }
 
