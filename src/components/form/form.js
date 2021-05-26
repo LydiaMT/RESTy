@@ -7,7 +7,7 @@ class Form extends React.Component {
     this.state = {
       url: '',
       method: '',
-      print: false,
+      show: false,
     }
   }
 
@@ -16,15 +16,23 @@ class Form extends React.Component {
     this.setState({ url })
   }
 
-  handleClick = e => {
+  handelClick = e => {
     e.preventDefault();
     let method = e.target.value
     this.setState({ method })
   }
 
-  handelSubmit = e => {
+  handelSubmit = async e => {
     e.preventDefault();
-    this.setState({ print: true})   
+
+    let raw = await fetch('https://swapi.dev/api/people/');
+    let data = await raw.json();
+    console.log("data", data)
+    let count = data.count
+    let people = data.results
+    this.props.handler(count, people)
+    this.props.toggleLoading()
+    // this.setState({ show: true })   
   }
 
   render() {
@@ -37,15 +45,12 @@ class Form extends React.Component {
             <button type="submit">GO!</button>
           </section>
           <section>
-            <button onClick={this.handleClick} className="rest-action" value="GET">GET</button>
-            <button onClick={this.handleClick} className="rest-action" value="POST">POST</button>
-            <button onClick={this.handleClick} className="rest-action" value="PUT">PUT</button>
-            <button onClick={this.handleClick} className="rest-action" value="DELETE">DELETE</button>
+            <button onClick={this.handelClick} className="rest-action" value="GET">GET</button>
+            <button onClick={this.handelClick} className="rest-action" value="POST">POST</button>
+            <button onClick={this.handelClick} className="rest-action" value="PUT">PUT</button>
+            <button onClick={this.handelClick} className="rest-action" value="DELETE">DELETE</button>
           </section>
         </form>
-        <section className="output">
-          {this.state.print && <p>{this.state.method} {this.state.url}</p>}
-        </section>
       </>
     );
   }
