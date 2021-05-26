@@ -6,7 +6,7 @@ class Form extends React.Component {
     super(props)
     this.state = {
       url: '',
-      method: '',
+      method: 'GET',
       show: false,
     }
   }
@@ -24,12 +24,15 @@ class Form extends React.Component {
 
   handelSubmit = async e => {
     e.preventDefault();
+    this.props.toggleSearchLoading()
     let raw = await fetch(this.state.url);
     let data = await raw.json();
     let header = raw.headers
     let count = data.count
     let results = data.results
     this.props.handler( header, count, results )
+    this.props.toggleSearchLoading()
+
     this.props.toggleLoading()
   }
 

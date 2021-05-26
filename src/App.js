@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/header/header'
 import Form from './components/form/form'
+import History from './components/history/history'
 import Results from './components/results/results'
 import Footer from './components/footer/footer'
 
@@ -12,6 +13,7 @@ class App extends React.Component {
       header: {},
       count: 0,
       results: [],
+      searchLoading: false,
     }
   }
   
@@ -22,13 +24,20 @@ class App extends React.Component {
   handleForm = (header, count, results ) => {
     this.setState({ header, count, results });
   }
+
+  toggleSearchLoading = () => {
+    this.setState({ searchLoading: !this.state.searchLoading})
+  }
   
   render() {
     return (
       <React.StrictMode>
         <Header />
-        <Form toggleLoading={this.toggleLoading} handler={this.handleForm} />
-        <Results header={this.state.header} results={this.state.results}/>
+        <Form toggleLoading={this.toggleLoading} handler={this.handleForm} toggleSearchLoading={this.toggleSearchLoading}/>
+        <div className="output-wrapper">
+          <History />
+          <Results header={this.state.header} results={this.state.results}searchLoading={this.state.searchLoading}/>
+        </div>
         <Footer />
       </React.StrictMode> 
     );
