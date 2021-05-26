@@ -9,8 +9,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       loading: false,
+      header: [],
       count: 0,
-      results: []      
+      results: [],
     }
   }
   
@@ -18,8 +19,8 @@ class App extends React.Component {
     this.setState({ loading: !this.state.loading });
   }
 
-  handleForm = (count, results) => {
-    this.setState({ count, results });
+  handleForm = (header, count, results ) => {
+    this.setState({ header, count, results });
   }
   
   render() {
@@ -27,7 +28,7 @@ class App extends React.Component {
       <React.StrictMode>
         <Header />
         <Form toggleLoading={this.toggleLoading} handler={this.handleForm} />
-        <Results people={this.state.results}/>
+        <Results header={this.state.header} results={this.state.results}/>
         <Footer />
       </React.StrictMode> 
     );
