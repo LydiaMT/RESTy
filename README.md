@@ -70,3 +70,27 @@ An API testing tool that can be run in any browser, allowing a user to easily in
 ## Event Flow
 
 ![Event Flow Diagram](img/RESTy2.jpg)
+
+# Day 3
+
+## Application flow
+
+Update the RESTy application as follows:
+- Add support for PUT, POST, and DELETE in your remote calls
+- Whenever a query is successful (results come back), store the query parameters in local storage
+  - Store the URL, Method, and the Body (if any)
+  - Store only unique, successful queries
+
+Home Page:
+- Add a simple history list to the left side of the application
+  - List all previous queries, showing the method and the URL
+  - When a user clicks a previous query, populate the RESTy forms with the query information
+- Completely hide the output area (Headers & Results) when there are none to display
+- Display any fetch/load errors in place of the results area, if they occur
+- Add a “Loading” indicator while fetching
+  - When the user clicks the “Go!” button, show a loading icon on the page
+  - When the fetching of results is complete, remove the loading icon and show the results
+
+## Event Flow
+
+![Event Flow Diagram](img/RESTy3.jpg)

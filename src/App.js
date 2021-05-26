@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       loading: false,
-      header: [],
+      header: {},
       count: 0,
       results: [],
     }
