@@ -58,6 +58,10 @@ class App extends React.Component {
     history.push(queries)
   }
 
+  handleHistory = (method, url) => {
+    this.setState({ method, url })
+  }
+
   render() {
     return (
       <React.StrictMode>
@@ -68,9 +72,13 @@ class App extends React.Component {
           handleChange={this.handleChange} 
           handelClick={this.handelClick}
           handler={this.handleForm} 
-          handelSubmit={this.handelSubmit}/>
+          handelSubmit={this.handelSubmit}
+          url={this.state.url}
+          method={this.state.method}
+          />
         <div className="output-wrapper">
           <History 
+            handleHistory={this.handleHistory}
             history={this.state.history}/>
           <Results 
             results={this.state.results} 

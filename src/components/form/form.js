@@ -6,10 +6,10 @@ class Form extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={this.props.handelSubmit}>
+        <form onSubmit={this.props.handelSubmit} value={this.props.method}>
           <section>
             <label>URL:</label> 
-            <input type="text" onChange={this.props.handleChange} />
+            <input type="text" value={this.props.url} onChange={this.props.handleChange} />
             <button type="submit">GO!</button>
           </section>
           <section>
