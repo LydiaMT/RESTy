@@ -12,7 +12,6 @@ class App extends React.Component {
     this.state = {
       loading: false,
       results: [],
-      searchLoading: false,
       url: '',
       method: '',
       history: [],
@@ -26,10 +25,6 @@ class App extends React.Component {
 
   toggleSearchLoading = () => {
     this.setState({ searchLoading: !this.state.searchLoading})
-  }
-
-  toggleOutputLoading = () => {
-    this.setState({ outputLoad: !this.state.outputLoad})
   }
   
   handleChange = e => {
@@ -48,19 +43,19 @@ class App extends React.Component {
     this.toggleSearchLoading()
     let method = this.state.method;
     let url = this.state.url
-    let history = this.state.history
     await axios({method, url})
       .then(data => {
         let results = data.data.results
         this.setState({ results });
       })
-      
     this.toggleSearchLoading()
     this.toggleLoading()
-    this.setState({ history: [...this.state.history, {method, url}] })
+    this.updateHistory({method, url})
+  }
+
+  updateHistory = item => {
+    this.setState({ history: [...this.state.history, item] })
     localStorage.setItem("history", JSON.stringify(this.state.history))
-    let queries = localStorage.getItem("history")
-    history.push(queries)
   }
 
   handleHistory = (method, url) => {
