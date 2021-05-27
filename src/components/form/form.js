@@ -9,7 +9,7 @@ class Form extends React.Component {
         <form onSubmit={this.props.handelSubmit} value={this.props.method}>
           <section>
             <label>URL:</label> 
-            <input type="text" value={this.props.url} onChange={this.props.handleChange} />
+            <input type="text" value={this.props.url} onChange={this.props.handleChange} placeholder=""/>
             <button type="submit">GO!</button>
           </section>
           <section>
@@ -17,6 +17,9 @@ class Form extends React.Component {
             <button onClick={this.props.handelClick} className="rest-action" value="POST">POST</button>
             <button onClick={this.props.handelClick} className="rest-action" value="PUT">PUT</button>
             <button onClick={this.props.handelClick} className="rest-action" value="DELETE">DELETE</button>
+          </section>
+          <section>
+            <input type="text" className="query-parameters" placeholder="enter query parameters if applicable"/>
           </section>
         </form>
       </>

@@ -2,6 +2,20 @@ form {
   text-align: center;
   padding: 10px;
 
+  .query-parameters{
+    margin: 10px;
+    height: 100px;
+    width: 60%;
+    text-align: center;
+    ::-webkit-input-placeholder {
+      text-align: center;
+    }
+    
+    :-moz-placeholder {
+      text-align: center;
+    }
+  }
+
   .rest-action{
     border: none;
     padding: 5px;

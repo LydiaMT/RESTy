@@ -17,7 +17,7 @@ class History extends React.Component{
     return(
       <React.Fragment>
       <section className="history">
-        <h1>History</h1>
+        <h3>History</h3>
         <ul>
           {items}
         </ul>
