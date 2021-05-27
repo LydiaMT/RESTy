@@ -15,7 +15,8 @@ class App extends React.Component {
       searchLoading: false,
       url: '',
       method: '',
-      history: []
+      history: [],
+      outputLoad: false,
     }
   }
   
@@ -25,6 +26,10 @@ class App extends React.Component {
 
   toggleSearchLoading = () => {
     this.setState({ searchLoading: !this.state.searchLoading})
+  }
+
+  toggleOutputLoading = () => {
+    this.setState({ outputLoad: !this.state.outputLoad})
   }
   
   handleChange = e => {
@@ -80,7 +85,7 @@ class App extends React.Component {
           <History 
             handleHistory={this.handleHistory}
             history={this.state.history}/>
-          <Results 
+          <Results
             results={this.state.results} 
             searchLoading={this.state.searchLoading}/>
         </div>

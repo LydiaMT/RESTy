@@ -13,9 +13,7 @@ class History extends React.Component{
 
   render(){
     let items = this.props.history.map((query, idx) => 
-      <li key={idx} onClick={this.getHistory}>
-        {query.method} {query.url}
-      </li>)
+      <li key={idx} onClick={this.getHistory}>{query.method} {query.url}</li>)
     return(
       <React.Fragment>
       <section className="history">
