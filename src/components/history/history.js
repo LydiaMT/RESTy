@@ -3,7 +3,7 @@ import './history.scss'
 
 class History extends React.Component{
   render(){
-    let items = this.props.history.map((query, idx) => <li key={idx}>{query}</li> )
+    let items = this.props.history.map((query, idx) => <li key={idx}>{query.method} {query.url}</li> )
     return(
       <React.Fragment>
       <section className="history">

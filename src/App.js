@@ -4,14 +4,13 @@ import Form from './components/form/form'
 import History from './components/history/history'
 import Results from './components/results/results'
 import Footer from './components/footer/footer'
+import axios from 'axios'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
-      header: {},
-      count: 0,
       results: [],
       searchLoading: false,
       url: '',
@@ -31,7 +30,6 @@ class App extends React.Component {
   handleChange = e => {
     let url = e.target.value;
     this.setState({ url })
-    this.setState({ history: [...this.state.history] })
   }
 
   handelClick = e => {
@@ -42,20 +40,22 @@ class App extends React.Component {
 
   handelSubmit = async e => {
     e.preventDefault();
-
-    // this.setState({ history: [...this.state.history, { url, method }] })
     this.toggleSearchLoading()
-    let raw = await fetch(this.state.url);
-    let data = await raw.json();
-    let header = raw.headers
-    let count = data.count
-    let results = data.results
-    this.setState({ header, count, results });
+    let method = this.state.method;
+    let url = this.state.url
+    let history = this.state.history
+    await axios({method, url})
+      .then(data => {
+        let results = data.data.results
+        this.setState({ results });
+      })
+      
     this.toggleSearchLoading()
     this.toggleLoading()
-    let history = this.state.history
-    history.push(`${this.state.method} ${this.state.url}`)
-    // console.log(history)
+    this.setState({ history: [...this.state.history, {method, url}] })
+    localStorage.setItem("history", JSON.stringify(this.state.history))
+    let queries = localStorage.getItem("history")
+    history.push(queries)
   }
 
   render() {
@@ -73,7 +73,6 @@ class App extends React.Component {
           <History 
             history={this.state.history}/>
           <Results 
-            header={this.state.header} 
             results={this.state.results} 
             searchLoading={this.state.searchLoading}/>
         </div>
