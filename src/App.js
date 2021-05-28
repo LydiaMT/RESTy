@@ -5,6 +5,7 @@ import History from './components/history/history'
 import Results from './components/results/results'
 import Footer from './components/footer/footer'
 import axios from 'axios'
+import { BrowserRouter, Link, NavLink, Route, Switch } from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props) {
@@ -65,7 +66,6 @@ class App extends React.Component {
   render() {
     return (
       <React.StrictMode>
-        <Header />
         <Form 
           toggleLoading={this.toggleLoading} 
           toggleSearchLoading={this.toggleSearchLoading} 
@@ -84,7 +84,6 @@ class App extends React.Component {
             results={this.state.results} 
             searchLoading={this.state.searchLoading}/>
         </div>
-        <Footer />
       </React.StrictMode> 
     );
   }

@@ -9,4 +9,20 @@ header {
     margin: auto 0;
     padding: 20px;
   }
+
+  ul {
+    text-align: center;
+    margin: auto 0;
+    padding-inline-start: 0;
+
+    li {
+      display: inline-block;
+      padding: 2vw;
+
+      a{
+        color: white;
+      }
+    }
+  }
+
 }
