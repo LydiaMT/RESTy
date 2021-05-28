@@ -4,7 +4,7 @@ import History from './components/history/history'
 import Help from './components/help/help'
 import Results from './components/results/results'
 import axios from 'axios'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props) {
@@ -14,8 +14,10 @@ class App extends React.Component {
       results: [],
       url: '',
       method: '',
+      body:'',
       history: [],
       outputLoad: false,
+      redirect: null,
     }
   }
   
@@ -27,25 +29,29 @@ class App extends React.Component {
     this.setState({ searchLoading: !this.state.searchLoading})
   }
   
-  handleChange = e => {
+  changeURL = e => {
     let url = e.target.value;
     this.setState({ url })
   }
 
-  handelClick = e => {
+  changeBody = e => {
+    let body = e.target.value
+    this.setState({ body })
+  }
+
+  changeMethod = e => {
     e.preventDefault();
     let method = e.target.value
     this.setState({ method })
   }
 
   handelSubmit = async e => {
-    e.preventDefault();
+    if(e) e.preventDefault();
     this.toggleSearchLoading()
-    let method = this.state.method;
-    let url = this.state.url
-    await axios({method, url})
+    const { method, url, body } = this.state // pulling keys off state object
+    await axios({ method, url, data: body })
       .then(data => {
-        let results = data.data.results
+        let results = data.data
         this.setState({ results });
       })
     this.toggleSearchLoading()
@@ -58,11 +64,27 @@ class App extends React.Component {
     localStorage.setItem("history", JSON.stringify(this.state.history))
   }
 
-  handleHistory = (method, url) => {
-    this.setState({ method, url })
+  handleHistory = (idx) => { 
+    return (_event) => {
+      const { method, url } = this.state.history[idx]
+      this.setState({ method, url })
+    };
+  }
+
+  rerun = (idx) => { 
+    return (_event) => {
+      const { method, url, body } = this.state.history[idx]
+      this.setState({ method, url , body , redirect: '/' })
+      this.handelSubmit()
+    };
   }
 
   render() {
+    if (this.state.redirect) {
+      const { redirect } = this.state
+      this.setState({ redirect: null})
+      return <Redirect to={redirect} />
+    }
     return (
       <React.StrictMode>
         <Switch>
@@ -70,8 +92,9 @@ class App extends React.Component {
             <Form 
               toggleLoading={this.toggleLoading} 
               toggleSearchLoading={this.toggleSearchLoading} 
-              handleChange={this.handleChange} 
-              handelClick={this.handelClick}
+              changeURL={this.changeURL}
+              changeBody={this.changeBody} 
+              changeMethod={this.changeMethod}
               handler={this.handleForm} 
               handelSubmit={this.handelSubmit}
               url={this.state.url}
@@ -79,6 +102,7 @@ class App extends React.Component {
               />
             <div className="output-wrapper">
               <History 
+                rerun={this.rerun}
                 handleHistory={this.handleHistory}
                 history={this.state.history}/>
               <Results
@@ -86,16 +110,23 @@ class App extends React.Component {
                 searchLoading={this.state.searchLoading}/>
             </div>
           </Route>
-          <Route exact path="/History">
-            <History 
+          <Route exact path="/history">
+            <History
+              rerun={this.rerun} 
               handleHistory={this.handleHistory}
               history={this.state.history}/>
+              <div>
+                <ul>
+                  <li>{this.state.method}</li>
+                  <li>{this.state.url}</li>
+                  <li>{this.state.body}</li>
+                </ul>
+              </div>
           </Route>
-          <Route exact path="/Help">
+          <Route exact path="/help">
             <Help/>
           </Route>
         </Switch>
-
       </React.StrictMode> 
     );
   }

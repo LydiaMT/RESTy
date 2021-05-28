@@ -1,8 +1,7 @@
 import React from 'react';
-import App from '../App.js';
 import Results from '../components/results/results.js';
 import '@testing-library/jest-dom/extend-expect'
-import { render, fireEvent, waitFor, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 it('should render a list of star wars char', async () => {
   const raw = await fetch ('https://swapi.dev/api/people/');
