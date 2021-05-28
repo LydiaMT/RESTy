@@ -94,3 +94,27 @@ Home Page:
 ## Event Flow
 
 ![Event Flow Diagram](img/RESTy3.jpg)
+
+
+# Day 4
+
+## Application flow
+
+- Add a menu bar to the header
+  - Link labeled “Home” that links to ‘/’ and shows the search form/results page
+  - Link labeled “History” that links to ‘/history’ and loads the history page
+  - Link labeled “Help” that links to ‘/help’ and loads the about us page
+
+Home Page:
+- Same as day 3
+
+History Page:
+- Maintain a list of every unique and successful API call the user has made
+- On the History page, show a list of ever previous API call
+  - Clicking on an entry shows the full details of that query in a separate section on the page
+  - URL, Method, Body
+- Show a button labeled “Re-Run” that would execute that API call again and shows the home page with the form pre-filled
+
+Help Page:
+- Display static content detailing how a user should use the ReSTY application
+
