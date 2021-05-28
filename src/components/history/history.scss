@@ -1,10 +1,18 @@
+@import '../../core';
+
 .history {
-  border: rgb(173, 173, 173) solid 1px;
-  background-color: rgb(228, 231, 231);
+  border: $secondary-color solid 1px;
+  border-radius: $round-border;
+  background-color: $primary-color;
   margin-left: 10px;
   word-wrap: break-word;
-  h3 {
-    text-align: center;
-    margin: 0;
+  li{
+    display: flex;
+    border-bottom: $black 3px solid;
+    margin-bottom: $gutter-md;
+  }
+  button{
+    margin-bottom: $gutter-sm;
+    margin-left: $gutter;
   }
 }

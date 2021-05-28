@@ -9,8 +9,8 @@ class Form extends React.Component {
         <form onSubmit={this.props.handelSubmit} value={this.props.method}>
           <section>
             <label>URL:</label> 
-            <input type="text" value={this.props.url} onChange={this.props.changeURL} placeholder=""/>
-            <button type="submit">GO!</button>
+            <input type="text" className="url-input" value={this.props.url} onChange={this.props.changeURL} placeholder=""/>
+            <button className="go" type="submit">GO!</button>
           </section>
           <section>
             <button onClick={this.props.changeMethod} className="rest-action" value="GET">GET</button>

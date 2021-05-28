@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+// colors
+$primary-color: rgb(228, 231, 231);
+$secondary-color:rgb(173, 173, 173);
+$tertiary-color:rgb(167, 167, 167);
+$accent-color: greenyellow;
+$black: rgb(43, 43, 43);
+$white: rgb(241, 241, 241);
+
+// gutters
+$gutter: 2vw;
+$gutter-md: $gutter / 2;
+$gutter-sm: $gutter / 4;
+
+// general styling
+$round-border: 5px;
+$primary-font: helvetica;
+$secondary-font: 'VT323', monospace;
+$accent-font: 'Roboto Mono', helvetica;
