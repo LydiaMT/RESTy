@@ -15,7 +15,7 @@ class Results extends React.Component {
       <section className="output">
         <If condition={this.props.searchLoading}>
           <Then>
-            <h1>Loading...</h1>
+            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
           </Then>
           <Else>
             <ReactJson header={this.props.header} src={this.props.results} /> 

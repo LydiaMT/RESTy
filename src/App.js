@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from './components/header/header'
 import Form from './components/form/form'
 import History from './components/history/history'
+import Help from './components/help/help'
 import Results from './components/results/results'
-import Footer from './components/footer/footer'
 import axios from 'axios'
+import { Route, Switch } from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props) {
@@ -65,26 +65,37 @@ class App extends React.Component {
   render() {
     return (
       <React.StrictMode>
-        <Header />
-        <Form 
-          toggleLoading={this.toggleLoading} 
-          toggleSearchLoading={this.toggleSearchLoading} 
-          handleChange={this.handleChange} 
-          handelClick={this.handelClick}
-          handler={this.handleForm} 
-          handelSubmit={this.handelSubmit}
-          url={this.state.url}
-          method={this.state.method}
-          />
-        <div className="output-wrapper">
-          <History 
-            handleHistory={this.handleHistory}
-            history={this.state.history}/>
-          <Results
-            results={this.state.results} 
-            searchLoading={this.state.searchLoading}/>
-        </div>
-        <Footer />
+        <Switch>
+          <Route exact path="/">
+            <Form 
+              toggleLoading={this.toggleLoading} 
+              toggleSearchLoading={this.toggleSearchLoading} 
+              handleChange={this.handleChange} 
+              handelClick={this.handelClick}
+              handler={this.handleForm} 
+              handelSubmit={this.handelSubmit}
+              url={this.state.url}
+              method={this.state.method}
+              />
+            <div className="output-wrapper">
+              <History 
+                handleHistory={this.handleHistory}
+                history={this.state.history}/>
+              <Results
+                results={this.state.results} 
+                searchLoading={this.state.searchLoading}/>
+            </div>
+          </Route>
+          <Route exact path="/History">
+            <History 
+              handleHistory={this.handleHistory}
+              history={this.state.history}/>
+          </Route>
+          <Route exact path="/Help">
+            <Help/>
+          </Route>
+        </Switch>
+
       </React.StrictMode> 
     );
   }

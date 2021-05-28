@@ -1,5 +1,6 @@
 import React from 'react';
 import './history.scss'
+import { withRouter } from "react-router-dom";
 
 class History extends React.Component{
 
@@ -8,6 +9,7 @@ class History extends React.Component{
     req = req.split(' ');
     let method = req[0]
     let url = req[1]
+    console.log(method,url)
     this.props.handleHistory(method, url)
   }
 
