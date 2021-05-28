@@ -1,33 +1,51 @@
+@import '../../core';
+
 form {
   text-align: center;
   padding: 10px;
 
-  .query-parameters{
-    margin: 10px;
-    height: 100px;
-    width: 60%;
-    text-align: center;
-    ::-webkit-input-placeholder {
-      text-align: center;
-    }
-    
-    :-moz-placeholder {
-      text-align: center;
+  .url-input{
+    margin: $gutter-md;
+    width: 40%;
+  }
+
+  .go{
+    border: none;
+    border-radius: $round-border;
+    background-color: $black;
+    color: $white;
+    height: 23px;
+    width: 50px;
+
+    &:hover{
+      background-color: $accent-color;
+      color: $black;
+      transition: 350ms all;
     }
   }
 
   .rest-action{
     border: none;
+    border-radius: $round-border;
+    width: 75px;
     padding: 5px;
-    margin: 10px;
-    background-color: rgb(167, 167, 167);
+    margin: $gutter-md;
+    background-color: $tertiary-color;
 
     &:hover{
-      background-color: rgb(216, 216, 216);
+      background-color: $accent-color;
+      transition: 350ms all;
     }
 
     &:focus{
-      background-color: rgb(216, 216, 216);
+      background-color: $secondary-color;
+      background-color: $accent-color;
     }
+  }
+
+  .query-parameters{
+    margin: 10px;
+    height: 100px;
+    width: 60%;
   }
 }

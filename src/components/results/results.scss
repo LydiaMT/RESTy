@@ -1,12 +1,24 @@
+@import '../../core';
+
+.output-wrapper {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  margin-top: $gutter;
+}
+
 .output {
-  border: rgb(173, 173, 173) solid 1px;
-  background-color: rgb(228, 231, 231);
+  border: $secondary-color solid 1px;
+  border-radius: $round-border;
+  background-color: $primary-color;
   min-height: 400px;
   width: 90%;
   margin: auto;
-  padding: 10px;
+  li {
+    margin: $gutter-md;
+  }
 }
 
+// Loading Animation
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -21,10 +33,10 @@
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid rgb(22, 22, 22);
+    border: 8px solid $accent-color;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: rgb(22, 22, 22) transparent transparent transparent;
+    border-color: $black transparent transparent transparent;
   }
   div:nth-child(1) {
     animation-delay: -0.45s;

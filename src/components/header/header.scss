@@ -1,26 +1,24 @@
+@import '../../core';
+
 header {
-  margin: 0;
-  background-color: rgb(36, 35, 37);
-  color:rgb(230, 234, 235);
+  background-color: $black;
+  color:$white;
   width: 100%;
   text-align: center;
-  
-  h1 {
-    margin: auto 0;
-    padding: 20px;
-  }
 
   ul {
-    text-align: center;
-    margin: auto 0;
-    padding-inline-start: 0;
-
     li {
       display: inline-block;
-      padding: 2vw;
-
+      padding: $gutter;
       a{
         color: white;
+        text-decoration: none;
+        font-family: $secondary-font;
+        font-size:40px;
+      }
+      a:hover{
+        color: $accent-color;
+        transition: 350ms all;
       }
     }
   }

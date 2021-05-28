@@ -1,5 +1,8 @@
+@import '../../core';
+
 footer {
-  background-color: rgb(112, 112, 112);
+  background-color:$black;
+  color: $white;
   height: 75px;
   position: absolute;
   bottom: 0;
@@ -7,5 +10,8 @@ footer {
 
   p {
     padding-left: 10%;
+    padding-top: $gutter;
+    font-family: $secondary-font;
+    font-size: 20px;
   }
 }

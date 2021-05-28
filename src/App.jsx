@@ -111,17 +111,20 @@ class App extends React.Component {
             </div>
           </Route>
           <Route exact path="/history">
-            <History
-              rerun={this.rerun} 
-              handleHistory={this.handleHistory}
-              history={this.state.history}/>
-              <div>
-                <ul>
-                  <li>{this.state.method}</li>
-                  <li>{this.state.url}</li>
-                  <li>{this.state.body}</li>
-                </ul>
-              </div>
+            <div className="output-wrapper">
+              <History
+                rerun={this.rerun} 
+                handleHistory={this.handleHistory}
+                history={this.state.history}/>
+                <div className="output">
+                <h3>Click the text of your past queries to retrieve the metadata</h3>
+                  <ul>
+                    <li><h4>Method:</h4> {this.state.method}</li>
+                    <li><h4>URL:</h4> {this.state.url}</li>
+                    <li><h4>Body:</h4> {this.state.body}</li>
+                  </ul>
+                </div>
+            </div>
           </Route>
           <Route exact path="/help">
             <Help/>
