@@ -16,6 +16,7 @@ const Help = () => {
         </ol>
       </p>
       <p>It's as simple as that! Navigate to the History page to see a complete selection of your past queries. Click the query to see it's metadata, or click re-run to make the API call again. You can re-run previous API calls from the History or Home page.</p>
+      <p>PRO TIP: <a href="https://reqres.in/">reqres</a> is great for API tests </p>
       <h6>Happy programming!</h6>
     </section>
   )
