@@ -5,3 +5,32 @@ body {
   font-family: $primary-font;
 }
 
+.parent-wrapper{
+  margin: 0 auto;
+  width: 98%;
+}
+
+.output-wrapper {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  margin-top: $gutter;
+}
+
+.output {
+  border: $secondary-color solid 1px;
+  border-radius: $round-border;
+  background-color: $primary-color;
+  width: 95%;
+  word-wrap: break-word;
+  min-height: 400px;
+  margin: 0 auto;
+  
+  li {
+    margin: $gutter-md;
+    display: flex;
+  }
+
+  p{
+    font-size: 1.8vw;
+  }
+}

@@ -35,7 +35,7 @@ class App extends React.Component {
   }
 
   changeBody = e => {
-    let body = e.target.value
+    let body = e.target.value || ''
     this.setState({ body })
   }
 
@@ -56,7 +56,7 @@ class App extends React.Component {
       })
     this.toggleSearchLoading()
     this.toggleLoading()
-    this.updateHistory({method, url})
+    this.updateHistory({method, url, body})
   }
 
   updateHistory = item => {
@@ -66,8 +66,8 @@ class App extends React.Component {
 
   handleHistory = (idx) => { 
     return (_event) => {
-      const { method, url } = this.state.history[idx]
-      this.setState({ method, url })
+      const { method, url, body } = this.state.history[idx]
+      this.setState({ method, url , body})
     };
   }
 
@@ -85,6 +85,7 @@ class App extends React.Component {
       this.setState({ redirect: null})
       return <Redirect to={redirect} />
     }
+    console.log(this.state.history)
     return (
       <React.StrictMode>
         <Switch>
@@ -100,14 +101,16 @@ class App extends React.Component {
               url={this.state.url}
               method={this.state.method}
               />
-            <div className="output-wrapper">
-              <History 
-                rerun={this.rerun}
-                handleHistory={this.handleHistory}
-                history={this.state.history}/>
-              <Results
-                results={this.state.results} 
-                searchLoading={this.state.searchLoading}/>
+            <div className="parent-wrapper">
+              <div className="output-wrapper">
+                <History 
+                  rerun={this.rerun}
+                  handleHistory={this.handleHistory}
+                  history={this.state.history}/>
+                <Results
+                  results={this.state.results} 
+                  searchLoading={this.state.searchLoading}/>
+              </div>
             </div>
           </Route>
           <Route exact path="/history">
@@ -119,9 +122,9 @@ class App extends React.Component {
                 <div className="output">
                 <h3>Click the text of your past queries to retrieve the metadata</h3>
                   <ul>
-                    <li><h4>Method:</h4> {this.state.method}</li>
-                    <li><h4>URL:</h4> {this.state.url}</li>
-                    <li><h4>Body:</h4> {this.state.body}</li>
+                    <li><h4>Method</h4> <p>{this.state.method}</p></li>
+                    <li><h4>URL</h4> <p>{this.state.url}</p></li>
+                    <li><h4>Body</h4> <p>{this.state.body}</p></li>
                   </ul>
                 </div>
             </div>
