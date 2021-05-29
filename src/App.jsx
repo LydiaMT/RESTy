@@ -24,7 +24,9 @@ class App extends React.Component {
   
   componentDidMount(){
     const history = JSON.parse(localStorage.getItem("history"))
-    this.setState({ history })
+    if(history){
+      this.setState({ history })
+    }
   }
 
   toggleLoading = () => {
