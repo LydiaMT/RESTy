@@ -18,9 +18,15 @@ class App extends React.Component {
       history: [],
       outputLoad: false,
       redirect: null,
+      error: '',
     }
   }
   
+  componentDidMount(){
+    const history = JSON.parse(localStorage.getItem("history"))
+    this.setState({ history })
+  }
+
   toggleLoading = () => {
     this.setState({ loading: !this.state.loading });
   }
@@ -29,6 +35,10 @@ class App extends React.Component {
     this.setState({ searchLoading: !this.state.searchLoading})
   }
   
+  handleError = (message) => {
+    this.setState({ error: message })
+  }
+
   changeURL = e => {
     let url = e.target.value;
     this.setState({ url })
@@ -46,17 +56,26 @@ class App extends React.Component {
   }
 
   handelSubmit = async e => {
+    console.log('handelSubmit')
     if(e) e.preventDefault();
     this.toggleSearchLoading()
     const { method, url, body } = this.state // pulling keys off state object
-    await axios({ method, url, data: body })
-      .then(data => {
-        let results = data.data
-        this.setState({ results });
-      })
+    let data 
+    try { 
+      data = await axios({ method, url, data: body }) 
+      if(data.data){ 
+        let results = data.data 
+        if(results.body !== ""){ // if the results has a body
+          this.setState({ results , error: '' });  // update results and maintain the no error state
+        }
+      }
+      this.updateHistory({method, url, body})  
+    } catch(err) {
+      console.error("Something went wrong", err)
+      this.handleError({ error: err.message }) // if there's an error, trigger handleError and pass the error message
+    }
     this.toggleSearchLoading()
     this.toggleLoading()
-    this.updateHistory({method, url, body})
   }
 
   updateHistory = item => {
@@ -85,7 +104,6 @@ class App extends React.Component {
       this.setState({ redirect: null})
       return <Redirect to={redirect} />
     }
-    console.log(this.state.history)
     return (
       <React.StrictMode>
         <Switch>
@@ -100,6 +118,7 @@ class App extends React.Component {
               handelSubmit={this.handelSubmit}
               url={this.state.url}
               method={this.state.method}
+              handleError={this.handleError}
               />
             <div className="parent-wrapper">
               <div className="output-wrapper">
@@ -109,6 +128,7 @@ class App extends React.Component {
                   history={this.state.history}/>
                 <Results
                   results={this.state.results} 
+                  error={this.state.error}
                   searchLoading={this.state.searchLoading}/>
               </div>
             </div>
