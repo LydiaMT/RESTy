@@ -5,7 +5,7 @@ const Help = () => {
   return (
     <section>
       <h2>Welcome To Resty</h2>
-      <p>RESTy is an API tool to test your routes and CRUD methods. RESTy is simple to use, and stores your past queries so you can easily requery as you test your routes and API calls</p>
+      <p>RESTy is an API tool to test your routes and CRUD methods. RESTy is simple to use, and stores your past queries so you can easily requery as you test your routes and API calls.</p>
       <h5>To use RESTy:</h5>
       <p>
         <ol>

@@ -20,7 +20,7 @@ class Results extends React.Component {
         </If>
         <If condition={this.props.searchLoading}>
           <Then>
-            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
           </Then>
           <Else>
             <ReactJson header={this.props.header} src={this.props.results} /> 
