@@ -1,23 +1,5 @@
 @import '../../core';
 
-.output-wrapper {
-  display: grid;
-  grid-template-columns: 25% 75%;
-  margin-top: $gutter;
-}
-
-.output {
-  border: $secondary-color solid 1px;
-  border-radius: $round-border;
-  background-color: $primary-color;
-  min-height: 400px;
-  width: 90%;
-  margin: auto;
-  li {
-    margin: $gutter-md;
-  }
-}
-
 // Loading Animation
 .lds-ring {
   display: inline-block;

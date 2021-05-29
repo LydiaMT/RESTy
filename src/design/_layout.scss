@@ -3,7 +3,7 @@
 }
 
 h1 {
-  padding: $gutter;
+  padding: $gutter-sm;
   font-family: $secondary-font;
   font-size: 100px;
   color: $accent-color;
@@ -11,23 +11,46 @@ h1 {
 
 h2 {
   padding: $gutter;
-  font-family: $accent-font;
+  font-family: $primary-font;
   font-size: 40px;
+  background-color: $accent-color;
 }
 
 h3 {
   text-align: center;
   margin: $gutter-md;
   font-size: 20px;
-  font-family: $accent-font;
+  font-family: $primary-font;
+  border-bottom: $black solid 1px;
+  padding-bottom: 2%;
 }
 
 h4 {
   display: inline;
+  width: 15%;
   margin: $gutter-md;
-  font-size: 20px;
+  font-size: $gutter;
+  background-color: $accent-color;
+  text-align: end;
+  border-bottom: $black solid 3px;
+}
+
+h5{
+  font-size: 30px;
+  margin: $gutter;
+}
+
+h6{
+  font-family: $primary-font;
+  font-size: 30px;
+  margin: $gutter;
+  text-align: center;
 }
 
 p {
   margin: $gutter-md;
+}
+
+button {
+  font-family: $primary-font;
 }

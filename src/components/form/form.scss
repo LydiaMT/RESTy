@@ -7,10 +7,14 @@ form {
   .url-input{
     margin: $gutter-md;
     width: 40%;
+    filter: drop-shadow(0 0 0.2rem $accent-color);
+    border: $black solid 2px;
+    border-radius: $round-border;
+
   }
 
   .go{
-    border: none;
+    border: 1px solid $accent-color;
     border-radius: $round-border;
     background-color: $black;
     color: $white;
@@ -47,5 +51,8 @@ form {
     margin: 10px;
     height: 100px;
     width: 60%;
+    border: $black 2px solid;
+    border-radius: $round-border;
+    filter: drop-shadow(0 0 0.75rem $accent-color);
   }
 }

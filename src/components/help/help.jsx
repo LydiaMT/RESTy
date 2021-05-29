@@ -1,12 +1,22 @@
 import React from 'react';
+import './help.scss';
 
 const Help = () => {
   return (
     <section>
       <h2>Welcome To Resty</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus. Non consectetur a erat nam at lectus urna duis convallis. Sed libero enim sed faucibus turpis in eu. Et molestie ac feugiat sed lectus vestibulum. Sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum. Non pulvinar neque laoreet suspendisse. Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Amet facilisis magna etiam tempor orci eu lobortis elementum nibh. Risus in hendrerit gravida rutrum quisque non tellus orci. Sapien eget mi proin sed libero enim sed. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. At tempor commodo ullamcorper a lacus vestibulum sed. Pretium viverra suspendisse potenti nullam ac tortor vitae purus.</p>
-      <p>Turpis egestas integer eget aliquet nibh praesent. Congue eu consequat ac felis. Laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget. Aliquam sem et tortor consequat id porta nibh. Sit amet luctus venenatis lectus magna fringilla. Gravida quis blandit turpis cursus in hac habitasse platea. Diam volutpat commodo sed egestas egestas. Lacinia quis vel eros donec ac odio tempor orci dapibus. A lacus vestibulum sed arcu non odio. Lectus mauris ultrices eros in. Quam pellentesque nec nam aliquam sem. Amet facilisis magna etiam tempor orci eu lobortis elementum nibh. Mi in nulla posuere sollicitudin aliquam ultrices. Rhoncus urna neque viverra justo nec ultrices dui sapien eget. Donec enim diam vulputate ut pharetra. Laoreet sit amet cursus sit amet dictum sit amet. Morbi enim nunc faucibus a pellentesque sit amet porttitor. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus. Ipsum nunc aliquet bibendum enim. At urna condimentum mattis pellentesque.</p>
-      <p>Arcu vitae elementum curabitur vitae. Aliquam vestibulum morbi blandit cursus risus at ultrices. Nullam eget felis eget nunc lobortis mattis aliquam. Neque convallis a cras semper auctor neque vitae tempus quam. Tortor vitae purus faucibus ornare suspendisse. Eros donec ac odio tempor orci dapibus ultrices in iaculis. Fames ac turpis egestas maecenas pharetra convallis. Facilisis mauris sit amet massa. Sodales neque sodales ut etiam. Convallis posuere morbi leo urna molestie at. Sed arcu non odio euismod lacinia at quis risus sed. Sed enim ut sem viverra aliquet eget sit amet tellus. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Tincidunt eget nullam non nisi est sit. Massa id neque aliquam vestibulum morbi blandit. Habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat.</p>
+      <p>RESTy is an API tool to test your routes and CRUD methods. RESTy is simple to use, and stores your queries in session so you can requery over and over again as you test your routes and API calls</p>
+      <h5>To use RESTy:</h5>
+      <p>
+        <ol>
+          <li>1. Enter your route into the URL input on the Home page</li>
+          <li>2. Use the query paramaters input form for your PUT, POST, and DELETE routes</li>
+          <li>3. Click the Go! button</li>
+          <li>4. Successful calls will return the results of your query. Unsucessful calls will throw an error.</li>
+        </ol>
+      </p>
+      <p>It's as simple as that! Navigate to the History page to see a complete selection of your past queries. Click the query to see it's metadata, or click re-run to make the API call again. You can re-run previous API calls from the History or Home page.</p>
+      <h6>Happy programming!</h6>
     </section>
   )
 }

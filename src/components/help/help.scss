@@ -1,0 +1,9 @@
+@import '../../core';
+
+ol {
+  li {
+    margin: $gutter;
+    padding: $gutter-md;
+  }
+}
+
