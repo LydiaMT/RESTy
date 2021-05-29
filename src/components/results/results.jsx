@@ -13,6 +13,11 @@ class Results extends React.Component {
   render(){
     return(
       <section className="output">
+        <If condition={this.props.error}>
+          <Then>
+            <p>Invalid request. Try again.</p>
+          </Then>
+        </If>
         <If condition={this.props.searchLoading}>
           <Then>
             <div className="lds-ring"><div></div><div></div><div></div><div></div></div>

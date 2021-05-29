@@ -6,10 +6,10 @@ class Form extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={this.props.handelSubmit} value={this.props.method}>
+        <form onSubmit={this.props.handelSubmit} value={this.props.method} >
           <section>
             <label>URL:</label> 
-            <input type="text" className="url-input" value={this.props.url} onChange={this.props.changeURL} placeholder=""/>
+            <input required type="text" className="url-input" value={this.props.url} onChange={this.props.changeURL} placeholder=""/>
             <button className="go" type="submit">GO!</button>
           </section>
           <section>
@@ -18,8 +18,11 @@ class Form extends React.Component {
             <button onClick={this.props.changeMethod} className="rest-action" value="PUT">PUT</button>
             <button onClick={this.props.changeMethod} className="rest-action" value="DELETE">DELETE</button>
           </section>
-          <section>
-            <textarea value={this.props.body} onChange={this.props.changeBody} className="query-parameters" placeholder="enter query parameters if applicable"></textarea>
+          <section>{
+            this.props.method === 'POST' || this.props.method === 'PUT' ? (
+            <textarea value={this.props.body} onChange={this.props.changeBody} className="query-parameters" placeholder="enter query parameters"></textarea>
+            ): null            
+            }
           </section>
         </form>
       </>
