@@ -3,7 +3,7 @@
 
 ## Links & Resources
 
-✨ [Deployed Site](https://flamboyant-kepler-b6da40.netlify.app/)
+✨ [Deployed Site](https://resty-api.netlify.app/)
 
 ✨ [Pull Request](https://github.com/LydiaMT/resty/pull/3)
 

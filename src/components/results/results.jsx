@@ -13,6 +13,7 @@ class Results extends React.Component {
   render(){
     return(
       <section className="output">
+                    <h3>Results</h3>
         <If condition={this.props.error}>
           <Then>
             <p>Invalid request. Try again.</p>
@@ -20,10 +21,14 @@ class Results extends React.Component {
         </If>
         <If condition={this.props.searchLoading}>
           <Then>
-            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
           </Then>
-          <Else>
-            <ReactJson header={this.props.header} src={this.props.results} /> 
+          <Else condition={this.props.handleHistory}>
+
+            <p>HEADER</p>
+            <ReactJson src={this.props.header} /> 
+            <p>BODY</p>
+            <ReactJson src={this.props.results} /> 
           </Else>
         </If>
       </section>

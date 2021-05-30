@@ -20,7 +20,7 @@ class Form extends React.Component {
           </section>
           <section>{
             this.props.method === 'POST' || this.props.method === 'PUT' ? (
-            <textarea value={this.props.body} onChange={this.props.changeBody} className="query-parameters" placeholder="enter query parameters"></textarea>
+            <textarea value={this.props.body} onChange={this.props.changeBody} className="query-parameters" placeholder="body"></textarea>
             ): null            
             }
           </section>
