@@ -46,6 +46,28 @@ form {
     }
   }
 
+  .demo{
+    border: none;
+    border-radius: $round-border;
+    width: 75px;
+    padding: 5px;
+    margin: $gutter-md;
+    background-color: $black;
+    color: $white;
+
+    &:hover{
+      background-color: $accent-color;
+      transition: 350ms all;
+      color: $black;
+    }
+
+    &:focus{
+      background-color: $secondary-color;
+      background-color: $accent-color;
+      color: $black;
+    }
+  }
+
   .query-parameters{
     margin: 10px;
     height: 100px;
