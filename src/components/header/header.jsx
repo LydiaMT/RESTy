@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 const Header = () => {
   return (
     <header>
-      <h1>RESTy</h1>
+      <h1>RESTy<span className="blink" dangerouslySetInnerHTML={{__html: "&#9646" }} /></h1>
       <nav>
         <ul>
           <li>
