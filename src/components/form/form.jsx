@@ -13,6 +13,7 @@ class Form extends React.Component {
             <button className="go" type="submit">GO!</button>
           </section>
           <section>
+            <button onClick={this.props.handleDemo} className="rest-action" value="GET">DEMO!</button>
             <button onClick={this.props.changeMethod} className="rest-action" value="GET">GET</button>
             <button onClick={this.props.changeMethod} className="rest-action" value="POST">POST</button>
             <button onClick={this.props.changeMethod} className="rest-action" value="PUT">PUT</button>

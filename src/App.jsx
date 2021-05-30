@@ -14,7 +14,7 @@ class App extends React.Component {
       header: {},
       results: [],
       url: '',
-      method: 'GET',
+      method: '',
       body:'',
       history: [],
       outputLoad: false,
@@ -58,8 +58,19 @@ class App extends React.Component {
     this.setState({ method })
   }
 
+  handleDemo = e => {
+    e.preventDefault()
+    let method = 'GET'
+    let url = 'https://swapi.dev/api/people/'
+    this.setState({ url, method })
+  }
+
   handelSubmit = async e => {
     if(e) e.preventDefault();
+    if(this.state.method === ''){
+      alert("Please select a method: GET, POST, PUT, or DELETE")
+      return
+    }
     this.toggleSearchLoading()
     const { method, url, body } = this.state // pulling keys off state object
     let data 
@@ -122,6 +133,7 @@ class App extends React.Component {
               url={this.state.url}
               method={this.state.method}
               handleError={this.handleError}
+              handleDemo={this.handleDemo}
               />
             <div className="parent-wrapper">
               <div className="output-wrapper">
