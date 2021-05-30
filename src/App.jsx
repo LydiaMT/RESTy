@@ -11,9 +11,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       loading: false,
+      header: {},
       results: [],
       url: '',
-      method: '',
+      method: 'GET',
       body:'',
       history: [],
       outputLoad: false,
@@ -65,10 +66,14 @@ class App extends React.Component {
     let data 
     try { 
       data = await axios({ method, url, data: body }) 
+      console.log("DATA", data)
       if(data.data){ 
+        // console.log("DATA", data.data)
         let results = data.data 
+        let header = data.headers
+        console.log("HEADER", header)
         if(results.body !== ""){ // if the results has a body
-          this.setState({ results , error: '' });  // update results and maintain the no error state
+          this.setState({ results , header, error: '' });  // update results, header and maintain the no error state
         }
       }
       this.updateHistory({method, url, body})  
@@ -130,6 +135,7 @@ class App extends React.Component {
                   history={this.state.history}/>
                 <Results
                   results={this.state.results} 
+                  header={this.state.header}
                   error={this.state.error}
                   searchLoading={this.state.searchLoading}/>
               </div>
