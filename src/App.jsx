@@ -59,19 +59,15 @@ class App extends React.Component {
   }
 
   handelSubmit = async e => {
-    console.log('handelSubmit')
     if(e) e.preventDefault();
     this.toggleSearchLoading()
     const { method, url, body } = this.state // pulling keys off state object
     let data 
     try { 
       data = await axios({ method, url, data: body }) 
-      console.log("DATA", data)
       if(data.data){ 
-        // console.log("DATA", data.data)
         let results = data.data 
         let header = data.headers
-        console.log("HEADER", header)
         if(results.body !== ""){ // if the results has a body
           this.setState({ results , header, error: '' });  // update results, header and maintain the no error state
         }
@@ -134,6 +130,7 @@ class App extends React.Component {
                   handleHistory={this.handleHistory}
                   history={this.state.history}/>
                 <Results
+                  handelSubmit={this.handelSubmit}
                   results={this.state.results} 
                   header={this.state.header}
                   error={this.state.error}
