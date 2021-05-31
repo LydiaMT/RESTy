@@ -12,7 +12,7 @@ class History extends React.Component{
             <span>{query.method} </span> 
             <span>{query.url}</span>
           </div>
-          <button type="button" onClick={this.props.rerun(idx)}>re-run</button>
+          <button type="button" onClick={this.props.rerun(idx)}>rerun</button>
         </li>
       )}
     )
