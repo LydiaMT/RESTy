@@ -83,7 +83,7 @@ class App extends React.Component {
           this.setState({ results , header, error: '' });  // update results, header and maintain the no error state
         }
       }
-      this.updateHistory({method, url, body})  
+      this.updateHistory({ method, url, body })  
     } catch(err) {
       console.error("Something went wrong", err)
       this.handleError({ error: err.message }) // if there's an error, trigger handleError and pass the error message
@@ -100,22 +100,21 @@ class App extends React.Component {
   handleHistory = (idx) => { 
     return (_event) => {
       const { method, url, body } = this.state.history[idx]
-      this.setState({ method, url , body})
+      this.setState({ method, url , body })
     };
   }
 
   rerun = (idx) => { 
     return (_event) => {
       const { method, url, body } = this.state.history[idx]
-      this.setState({ method, url , body , redirect: '/' })
-      this.handelSubmit()
+      this.setState({ method, url , body , redirect: '/' }, this.handelSubmit )
     };
   }
 
   render() {
-    if (this.state.redirect) {
+    if (this.state.redirect) { // needed because each 'page' isn't a unique component 
       const { redirect } = this.state
-      this.setState({ redirect: null})
+      this.setState({ redirect: null })
       return <Redirect to={redirect} />
     }
     return (

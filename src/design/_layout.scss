@@ -71,3 +71,11 @@ button {
   font-family: $secondary-font;
   font-size: 25px;
 }
+
+@media only screen and (max-width: 750px) {
+  .history{
+    button{
+      max-height: 13.5px;
+    }
+  }
+}
