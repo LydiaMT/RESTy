@@ -27,7 +27,7 @@ class Results extends React.Component {
             <If condition={Object.keys(this.props.header).length > 0}> 
               <Then>
                 <p>HEADER</p>
-                <ReactJson src={this.props.header} className="reactJson"/> 
+                <ReactJson src={this.props.header} className="reactJson" /> 
                 <p>BODY</p>
                 <ReactJson src={this.props.results} className="reactJson" /> 
               </Then>
