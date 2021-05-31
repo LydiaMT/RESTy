@@ -1,9 +1,13 @@
 @import '../../core';
 
+.react-json-view{
+  overflow: scroll;
+  // font-size: 1.5vw;
+}
+
 // Loading Animation
 .lds-ellipsis {
-  display: inline-block;
-  left: 45%;
+  margin: auto;
   position: relative;
   width: 80px;
   height: 80px;
